@@ -1,0 +1,42 @@
+{
+  "name": "@davidecassenti/async-one-liner-or-so",
+  "version": "1.0.0",
+  "description": "Example of how to do async stuff, in just one line (or so)",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "ava test/**/*-spec.ts"
+  },
+  "author": {
+    "name": "Davide Cassenti",
+    "url": "https://davide.cassenti.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidecassenti/async-one-liner-or-so"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/sinon": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "ava": "^3.8.1",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "sinon": "^9.0.2",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
