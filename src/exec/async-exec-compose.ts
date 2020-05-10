@@ -1,5 +1,5 @@
 import reduceRight from '../array/async-array-reduceRight'
-import { AsyncUnaryFunction } from '../_types'
+import { asyncComposedFunction } from './index'
 
 /**
  * Returns a new function that will execute the async functions
@@ -11,14 +11,19 @@ import { AsyncUnaryFunction } from '../_types'
  *
  * @see [src/array/async-exec-compose.ts](src/array/async-exec-compose.ts)
  *
- * @param ...functions The functions to execute
+ * @param ...functions {Function} The functions to execute
+ * @returns {module:exec~asyncComposedFunction} The composed function
  *
  * @memberof module:exec
  */
-export default function compose<T> (...functions: AsyncUnaryFunction<T, unknown>[]) {
-  return (initialValue: T): Promise<unknown> => reduceRight<Function, unknown>(
+export default function compose<T, U> (
+  ...functions: Function[]
+): asyncComposedFunction<T, U> {
+  const result = (initialValue: T): Promise<unknown> => reduceRight<Function, unknown>(
     functions,
     async (promiseValue, currentFunction) => currentFunction(await promiseValue),
     initialValue
   )
+
+  return result as (initialValue: T) => Promise<U>
 }

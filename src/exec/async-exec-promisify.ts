@@ -8,7 +8,8 @@
  *
  * @see [src/array/async-exec-promisify.ts](src/array/async-exec-promisify.ts)
  *
- * @param func The function with callback
+ * @param func {Function} A function with callback as its last parameter
+ * @returns {Function} A function that returns a Promise that is resolved when the input function callback would be invoked
  *
  * @memberof module:exec
  */

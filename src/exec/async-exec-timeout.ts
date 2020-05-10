@@ -4,8 +4,9 @@
  *
  * @see [src/array/async-exec-timeout.ts](src/array/async-exec-timeout.ts)
  *
- * @param callback The callback to invoke
- * @param time The time to wait
+ * @param callback {Function} The callback to invoke
+ * @param time {number} The time to wait
+ * @returns {Promise<T>} A Promise that is resolved with the return value of the callback, after the time is expired
  *
  * @memberof module:exec
  */

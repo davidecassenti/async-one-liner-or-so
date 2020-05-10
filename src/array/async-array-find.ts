@@ -1,4 +1,5 @@
 import findIndex from './async-array-findIndex'
+import { callbackAsyncArrayTest } from './index'
 
 /**
  * Finds the first item in the array that passes the test implemented
@@ -20,12 +21,16 @@ import findIndex from './async-array-findIndex'
  *
  * @see [src/array/async-array-find.ts](src/array/async-array-find.ts)
  *
- * @param source The input array
- * @param callback The async callback
+ * @param source {T[]} The input array
+ * @param callback {module:array~callbackAsyncArrayTest} The async callback
+ * @returns {Promise<T | undefined>} A Promise resolved with the found value, or undefined
  *
  * @memberof module:array
  */
-export default async function find<T> (source: T[], callback: (value: T, index: number, array: T[]) => Promise<boolean>): Promise<T | undefined> {
+export default async function find<T> (
+  source: T[],
+  callback: callbackAsyncArrayTest<T>
+): Promise<T | undefined> {
   const foundIndex = await findIndex(source, callback)
 
   return foundIndex !== -1 ? source[foundIndex] : undefined

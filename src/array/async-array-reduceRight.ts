@@ -1,3 +1,5 @@
+import { callbackAsyncArrayReduce } from './index'
+
 /**
  * Executes a reducer async function on each item of the array,
  * and returns a Promise resolved with a single output value.
@@ -17,13 +19,18 @@
  *
  * @see [src/array/async-array-reduceRight.ts](src/array/async-array-reduceRight.ts)
  *
- * @param source The input array
- * @param callback The reducer funciton
- * @param initialValue The initial value
+ * @param source {T[]} The input array
+ * @param callback {module:array~callbackAsyncArrayReduce} The async callback
+ * @param initialValue {U} The initial value
+ * @returns {Promise<U>} A Promise resolved with the reduced value
  *
  * @memberof module:array
  */
-export default async function reduceRight<T, U> (source: T[], callback: (accumulator: U, value: T, index: number, array: T[]) => Promise<U>, initialValue: U): Promise<U> {
+export default async function reduceRight<T, U> (
+  source: T[],
+  callback: callbackAsyncArrayReduce<T, U>,
+  initialValue: U
+): Promise<U> {
   const resolvedArray = await Promise.all(source)
   return new Promise((resolve) => {
     resolve(

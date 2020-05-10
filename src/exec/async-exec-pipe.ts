@@ -1,5 +1,5 @@
 import reduce from '../array/async-array-reduce'
-import { AsyncUnaryFunction } from '../_types'
+import { asyncComposedFunction } from './index'
 
 /**
  * Returns a new function that will execute the async functions
@@ -11,14 +11,19 @@ import { AsyncUnaryFunction } from '../_types'
  *
  * @see [src/array/async-exec-pipe.ts](src/array/async-exec-pipe.ts)
  *
- * @param ...functions The functions to execute
+ * @param ...functions {Function} The functions to execute
+ * @returns {module:exec~asyncComposedFunction} The composed function
  *
  * @memberof module:exec
  */
-export default function pipe<T> (...functions: AsyncUnaryFunction<unknown, unknown>[]) {
-  return (initialValue: T): Promise<unknown> => reduce<Function, unknown>(
+export default function pipe<T, U> (
+  ...functions: Function[]
+): asyncComposedFunction<T, U> {
+  const result = (initialValue: T): Promise<unknown> => reduce<Function, unknown>(
     functions,
     async (promiseValue, currentFunction) => currentFunction(await promiseValue),
     initialValue
   )
+
+  return result as (initialValue: T) => Promise<U>
 }

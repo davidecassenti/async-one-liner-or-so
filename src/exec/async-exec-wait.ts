@@ -4,7 +4,8 @@
  *
  * @see [src/array/async-exec-wait.ts](src/array/async-exec-wait.ts)
  *
- * @param time The time to wait
+ * @param time {number} The time to wait
+ * @returns {Promise<void>} A Promise that is resolved when the specified time expires
  *
  * @memberof module:exec
  */

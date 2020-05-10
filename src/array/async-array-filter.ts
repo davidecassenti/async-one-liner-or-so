@@ -1,4 +1,5 @@
 import reduce from './async-array-reduce'
+import { callbackAsyncArrayTest } from './index'
 
 /**
  * Gets an array and filters the items using an async filter function.
@@ -16,12 +17,16 @@ import reduce from './async-array-reduce'
  *
  * @see [src/array/async-array-filter.ts](src/array/async-array-filter.ts)
  *
- * @param source The input array
- * @param callback The async filter callback
+ * @param source {T[]} The input array
+ * @param callback {module:array~callbackAsyncArrayTest} The async callback
+ * @returns {Array<Promise<T>>} A Promise resolved with the filtered array
  *
  * @memberof module:array
  */
-export default async function filter<T> (source: T[], callback: (value: T, index: number, array: T[]) => Promise<boolean>): Promise<T[]> {
+export default async function filter<T> (
+  source: T[],
+  callback: callbackAsyncArrayTest<T>
+): Promise<T[]> {
   return reduce(
     source,
     async (previousValue, value, index, array): Promise<T[]> => {
