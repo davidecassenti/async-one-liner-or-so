@@ -8,6 +8,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   'rules': {
-    'node/no-unsupported-features/es-syntax': 'off'
+    'node/no-unsupported-features/es-syntax': 'off',
+    'comma-dangle': ['warn', 'only-multiline']
   }
 }
