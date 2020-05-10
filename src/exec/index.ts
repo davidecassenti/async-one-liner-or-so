@@ -1,4 +1,10 @@
 /**
+ * Functions to handle code execution.
+ *
+ * These functions allow to compose async functions,
+ * calling `setTimeout` without callbacks (but with
+ * the use of `await` instead) and so on.
+ *
  * @module exec
  */
 

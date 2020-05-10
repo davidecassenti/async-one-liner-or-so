@@ -4,8 +4,9 @@
 > mapping an array using an async callback, awaiting for a certain
 > timeout before invoking a function etc.
 >
-> The functions are just a few lines long, written in Typescript.
-> They can be used as examples to build more robust solutions.
+> The functions are just a few lines long, and are written in Typescript.
+> They are not complete - there is no error handling, just to name one -
+> but they might be a starting point to build something more robust.
 
 * * *
 
@@ -13,14 +14,28 @@
 
 <dl>
 <dt><a href="#module_array">array</a></dt>
-<dd></dd>
+<dd><p>Functions to handle arrays and async functions.</p>
+<p>Most of the functions here are similar to the standard
+functions provided by the language, such as <code>Array.map</code>
+or <code>Array.reduce</code>, but with async.</p>
+</dd>
 <dt><a href="#module_exec">exec</a></dt>
-<dd></dd>
+<dd><p>Functions to handle code execution.</p>
+<p>These functions allow to compose async functions,
+calling <code>setTimeout</code> without callbacks (but with
+the use of <code>await</code> instead) and so on.</p>
+</dd>
 </dl>
 
 <a name="module_array"></a>
 
 ## array
+Functions to handle arrays and async functions.
+
+Most of the functions here are similar to the standard
+functions provided by the language, such as `Array.map`
+or `Array.reduce`, but with async.
+
 
 * [array](#module_array)
     * _static_
@@ -331,6 +346,12 @@ calculated in the previous execution (the `accumulator`).
 <a name="module_exec"></a>
 
 ## exec
+Functions to handle code execution.
+
+These functions allow to compose async functions,
+calling `setTimeout` without callbacks (but with
+the use of `await` instead) and so on.
+
 
 * [exec](#module_exec)
     * _static_

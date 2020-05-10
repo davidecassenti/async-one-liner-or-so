@@ -1,4 +1,10 @@
 /**
+ * Functions to handle arrays and async functions.
+ *
+ * Most of the functions here are similar to the standard
+ * functions provided by the language, such as `Array.map`
+ * or `Array.reduce`, but with async.
+ *
  * @module array
  */
 
