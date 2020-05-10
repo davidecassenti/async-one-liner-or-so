@@ -1,22 +1,27 @@
 /**
  * Checks if all the items in the input array pass the test
- * implemented by the async callback function.
+ * implemented by the async `callback` function.
  *
  * The async callback function receives the following parameters:
- * - value: the current value in the array
- * - index: the current index
- * - array: the whole input array
+ *
+ * - `value`: the current value in the array
+ * - `index`: the current index
+ * - `array`: the whole input array
  *
  * It should return a Promise resolved with:
+ *
  * - `true` if the item passes the test
  * - `false` if the item does not pass the test
  *
- * @param arr The input array
+ * @param source The input array
  * @param callback The async callback
+ *
+ * @memberof module:array
+ * @see src/array/async-array-every.ts
  */
-export default async function every<T> (arr: T[], callback: (value: T, index: number, array: T[]) => Promise<boolean>): Promise<boolean> {
-  for (let currentIndex = 0, length = arr.length; currentIndex < length; currentIndex++) {
-    if (!(await callback(arr[currentIndex], currentIndex, arr))) return false
+export default async function every<T> (source: T[], callback: (value: T, index: number, array: T[]) => Promise<boolean>): Promise<boolean> {
+  for (let index = 0, length = source.length; index < length; index++) {
+    if (!(await callback(source[index], index, source))) return false
   }
 
   return true

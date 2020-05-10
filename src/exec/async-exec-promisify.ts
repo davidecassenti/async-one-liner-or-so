@@ -6,12 +6,14 @@
  * The returned function is async and is resolved when the
  * original callback is invoked.
  *
- * @param fn The function with callback
+ * @param func The function with callback
+ *
+ * @memberof module:exec
  */
-function promisify (fn: Function) {
+function promisify (func: Function) {
   return (...args: unknown[]): Promise<void> => {
     return new Promise((resolve) => {
-      fn(...args, resolve)
+      func(...args, resolve)
     })
   }
 }

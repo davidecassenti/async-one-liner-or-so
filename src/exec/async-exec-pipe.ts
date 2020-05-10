@@ -10,6 +10,8 @@ import { AsyncUnaryFunction } from '../_types'
  * of the first function will be the argument of the second, and so on.
  *
  * @param ...functions The functions to execute
+ *
+ * @memberof module:exec
  */
 export default function pipe<T> (...functions: AsyncUnaryFunction<unknown, unknown>[]) {
   return (initialValue: T): Promise<unknown> => reduce<Function, unknown>(

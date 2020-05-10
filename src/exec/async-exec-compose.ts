@@ -10,6 +10,8 @@ import { AsyncUnaryFunction } from '../_types'
  * of the last function will be the argument of the second last, and so on.
  *
  * @param ...functions The functions to execute
+ *
+ * @memberof module:exec
  */
 export default function compose<T> (...functions: AsyncUnaryFunction<T, unknown>[]) {
   return (initialValue: T): Promise<unknown> => reduceRight<Function, unknown>(

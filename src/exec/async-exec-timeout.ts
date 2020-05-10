@@ -4,6 +4,8 @@
  *
  * @param callback The callback to invoke
  * @param time The time to wait
+ *
+ * @memberof module:exec
  */
 export default async function timeout<T> (callback: Function, time = 0): Promise<T> {
   return new Promise((resolve) => {

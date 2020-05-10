@@ -4,7 +4,9 @@
   "description": "Example of how to do async stuff, in just one line (or so)",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run compile && npm run doc",
+    "compile": "tsc",
+    "doc": "jsdoc2md --template README.hbs -f dist/**/*.js > README.md",
     "test": "ava test/**/*-spec.ts"
   },
   "author": {
@@ -27,6 +29,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jsdoc-to-markdown": "^5.0.3",
     "sinon": "^9.0.2",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
