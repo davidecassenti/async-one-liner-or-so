@@ -14,6 +14,8 @@ import reduce from './async-array-reduce'
  * - `true` to keep the item
  * - `false` to get rid of the item
  *
+ * @see [src/array/async-array-filter.ts](src/array/async-array-filter.ts)
+ *
  * @param source The input array
  * @param callback The async filter callback
  *

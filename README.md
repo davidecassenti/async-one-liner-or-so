@@ -52,7 +52,7 @@ It should return a Promise resolved with:
 - `false` if the item does not pass the test
 
 **Kind**: static method of [<code>array</code>](#module_array)  
-**See**: src/array/async-array-every.ts  
+**See**: [src/array/async-array-every.ts](src/array/async-array-every.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -76,6 +76,7 @@ The async filter function should return a Promise resolved with:
 - `false` to get rid of the item
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-filter.ts](src/array/async-array-filter.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -103,6 +104,7 @@ It should return a Promise resolved with:
 - `false` if the item does not pass the test
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-find.ts](src/array/async-array-find.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -130,6 +132,7 @@ It should return a Promise resolved with:
 - `false` if the item does not pass the test
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-findIndex.ts](src/array/async-array-findIndex.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -148,6 +151,7 @@ The async callback receives the following parameters:
 - `array`: the whole input array
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-map.ts](src/array/async-array-map.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -173,6 +177,7 @@ time, it will receive the returned value of the first
 invocation, and so on.
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-reduce.ts](src/array/async-array-reduce.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -200,6 +205,7 @@ time, it will receive the returned value of the first
 invocation, and so on.
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-reduceRight.ts](src/array/async-array-reduceRight.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -214,6 +220,7 @@ Resolves the array of promises
 
 **Kind**: static method of [<code>array</code>](#module_array)  
 **Returns**: The resolved array  
+**See**: [src/array/async-array-resolve.ts](src/array/async-array-resolve.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -225,6 +232,7 @@ Resolves the array of promises
 Returns the value of the first promise that is resolved in the array.
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-resolveFirst.ts](src/array/async-array-resolveFirst.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -248,6 +256,7 @@ It should return a Promise resolved with:
 - `false` if the item does not pass the test
 
 **Kind**: static method of [<code>array</code>](#module_array)  
+**See**: [src/array/async-array-some.ts](src/array/async-array-some.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -276,6 +285,7 @@ parameter is the only argument of the last function; the output
 of the last function will be the argument of the second last, and so on.
 
 **Kind**: static method of [<code>exec</code>](#module_exec)  
+**See**: [src/array/async-exec-compose.ts](src/array/async-exec-compose.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -292,6 +302,7 @@ parameter is the only argument of the first function; the output
 of the first function will be the argument of the second, and so on.
 
 **Kind**: static method of [<code>exec</code>](#module_exec)  
+**See**: [src/array/async-exec-pipe.ts](src/array/async-exec-pipe.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -308,6 +319,7 @@ The returned function is async and is resolved when the
 original callback is invoked.
 
 **Kind**: static method of [<code>exec</code>](#module_exec)  
+**See**: [src/array/async-exec-promisify.ts](src/array/async-exec-promisify.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -320,6 +332,7 @@ Execute the provided `callaback` after `time` ms.
 Just as `setTimeout`, but async.
 
 **Kind**: static method of [<code>exec</code>](#module_exec)  
+**See**: [src/array/async-exec-timeout.ts](src/array/async-exec-timeout.ts)  
 
 | Param | Description |
 | --- | --- |
@@ -333,6 +346,7 @@ Just waits for `time` ms.
 Use await to stop the execution for that much time.
 
 **Kind**: static method of [<code>exec</code>](#module_exec)  
+**See**: [src/array/async-exec-wait.ts](src/array/async-exec-wait.ts)  
 
 | Param | Description |
 | --- | --- |

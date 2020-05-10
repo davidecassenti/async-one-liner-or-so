@@ -9,6 +9,8 @@ import resolve from './async-array-resolve'
  * - `index`: the current index
  * - `array`: the whole input array
  *
+ * @see [src/array/async-array-map.ts](src/array/async-array-map.ts)
+ *
  * @param source The input array
  * @param callback The async callback
  *

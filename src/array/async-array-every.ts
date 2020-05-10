@@ -13,11 +13,12 @@
  * - `true` if the item passes the test
  * - `false` if the item does not pass the test
  *
+ * @see [src/array/async-array-every.ts](src/array/async-array-every.ts)
+ *
  * @param source The input array
  * @param callback The async callback
  *
  * @memberof module:array
- * @see src/array/async-array-every.ts
  */
 export default async function every<T> (source: T[], callback: (value: T, index: number, array: T[]) => Promise<boolean>): Promise<boolean> {
   for (let index = 0, length = source.length; index < length; index++) {

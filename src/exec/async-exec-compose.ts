@@ -9,6 +9,8 @@ import { AsyncUnaryFunction } from '../_types'
  * parameter is the only argument of the last function; the output
  * of the last function will be the argument of the second last, and so on.
  *
+ * @see [src/array/async-exec-compose.ts](src/array/async-exec-compose.ts)
+ *
  * @param ...functions The functions to execute
  *
  * @memberof module:exec

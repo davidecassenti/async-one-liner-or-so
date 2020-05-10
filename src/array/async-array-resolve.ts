@@ -1,6 +1,8 @@
 /**
  * Resolves the array of promises
  *
+ * @see [src/array/async-array-resolve.ts](src/array/async-array-resolve.ts)
+ *
  * @param source An array of Promises
  * @return The resolved array
  *

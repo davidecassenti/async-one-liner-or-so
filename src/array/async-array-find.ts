@@ -18,6 +18,8 @@ import findIndex from './async-array-findIndex'
  * - `true` if the item passes the test
  * - `false` if the item does not pass the test
  *
+ * @see [src/array/async-array-find.ts](src/array/async-array-find.ts)
+ *
  * @param source The input array
  * @param callback The async callback
  *

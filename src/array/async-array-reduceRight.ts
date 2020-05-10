@@ -15,6 +15,8 @@
  * time, it will receive the returned value of the first
  * invocation, and so on.
  *
+ * @see [src/array/async-array-reduceRight.ts](src/array/async-array-reduceRight.ts)
+ *
  * @param source The input array
  * @param callback The reducer funciton
  * @param initialValue The initial value

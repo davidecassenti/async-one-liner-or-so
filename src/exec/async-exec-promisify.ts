@@ -6,6 +6,8 @@
  * The returned function is async and is resolved when the
  * original callback is invoked.
  *
+ * @see [src/array/async-exec-promisify.ts](src/array/async-exec-promisify.ts)
+ *
  * @param func The function with callback
  *
  * @memberof module:exec
