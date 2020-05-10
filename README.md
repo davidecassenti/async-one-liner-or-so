@@ -51,8 +51,8 @@ It should return a Promise resolved with:
 - `true` if the item passes the test
 - `false` if the item does not pass the test
 
-**Kind**: static method of [<code>array</code>](#module_array)  
-**See**: src/array/async-array-every.ts  
+**Kind**: static method of [<code>array</code>](#module_array)
+**See**: src/array/async-array-every.ts
 
 | Param | Description |
 | --- | --- |
@@ -75,7 +75,7 @@ The async filter function should return a Promise resolved with:
 - `true` to keep the item
 - `false` to get rid of the item
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -102,7 +102,7 @@ It should return a Promise resolved with:
 - `true` if the item passes the test
 - `false` if the item does not pass the test
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -129,7 +129,7 @@ It should return a Promise resolved with:
 - `true` if the item passes the test
 - `false` if the item does not pass the test
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -147,7 +147,7 @@ The async callback receives the following parameters:
 - `index`: the current index
 - `array`: the whole input array
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -172,7 +172,7 @@ the `initialValue` as the `accumulator` argument. The second
 time, it will receive the returned value of the first
 invocation, and so on.
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -199,7 +199,7 @@ the `initialValue` as the `accumulator` argument. The second
 time, it will receive the returned value of the first
 invocation, and so on.
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -212,8 +212,8 @@ invocation, and so on.
 ### array.resolve(source) ⇒
 Resolves the array of promises
 
-**Kind**: static method of [<code>array</code>](#module_array)  
-**Returns**: The resolved array  
+**Kind**: static method of [<code>array</code>](#module_array)
+**Returns**: The resolved array
 
 | Param | Description |
 | --- | --- |
@@ -224,7 +224,7 @@ Resolves the array of promises
 ### array.resolveFirst(source)
 Returns the value of the first promise that is resolved in the array.
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -247,7 +247,7 @@ It should return a Promise resolved with:
 - `true` if the item passes the test
 - `false` if the item does not pass the test
 
-**Kind**: static method of [<code>array</code>](#module_array)  
+**Kind**: static method of [<code>array</code>](#module_array)
 
 | Param | Description |
 | --- | --- |
@@ -275,7 +275,7 @@ The returned function receives one parameter in input; this
 parameter is the only argument of the last function; the output
 of the last function will be the argument of the second last, and so on.
 
-**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Kind**: static method of [<code>exec</code>](#module_exec)
 
 | Param | Description |
 | --- | --- |
@@ -291,7 +291,7 @@ The returned function receives one parameter in input; this
 parameter is the only argument of the first function; the output
 of the first function will be the argument of the second, and so on.
 
-**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Kind**: static method of [<code>exec</code>](#module_exec)
 
 | Param | Description |
 | --- | --- |
@@ -307,7 +307,7 @@ the input function, but the callback.
 The returned function is async and is resolved when the
 original callback is invoked.
 
-**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Kind**: static method of [<code>exec</code>](#module_exec)
 
 | Param | Description |
 | --- | --- |
@@ -319,7 +319,7 @@ original callback is invoked.
 Execute the provided `callaback` after `time` ms.
 Just as `setTimeout`, but async.
 
-**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Kind**: static method of [<code>exec</code>](#module_exec)
 
 | Param | Description |
 | --- | --- |
@@ -332,11 +332,8 @@ Just as `setTimeout`, but async.
 Just waits for `time` ms.
 Use await to stop the execution for that much time.
 
-**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Kind**: static method of [<code>exec</code>](#module_exec)
 
 | Param | Description |
 | --- | --- |
 | time | The time to wait |
-
-
-* * *
