@@ -8,11 +8,21 @@ test.serial('timeout', async (t) => {
 
   let resultX = 0
   let resultY = 0
+  let resultZ = 0
+
   timeout<number>(() => { resultX = 3 }, 500)
   timeout<number>(() => { resultY = 5 }, 1000)
+  timeout<number>(() => { resultZ = 7 })
 
   t.is(resultX, 0)
   t.is(resultY, 0)
+  t.is(resultZ, 0)
+
+  clock.tick(1)
+
+  t.is(resultX, 0)
+  t.is(resultY, 0)
+  t.is(resultZ, 7)
 
   clock.tick(510)
 
