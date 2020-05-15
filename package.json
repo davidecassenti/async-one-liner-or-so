@@ -6,8 +6,8 @@
   "scripts": {
     "build": "npm run compile && npm run doc",
     "compile": "tsc",
-    "doc": "jsdoc2md --template README.hbs -f dist/**/*.js > README.md",
     "test": "ava test/**/*-spec.ts"
+    "doc": "jsdoc2md --template _README.hbs -f dist/**/*.js > README.md",
   },
   "author": {
     "name": "Davide Cassenti",
