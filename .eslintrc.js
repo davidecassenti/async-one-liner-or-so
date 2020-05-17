@@ -5,10 +5,14 @@ module.exports = {
     'standard'
   ],
   'plugins': [
+    'jest',
     '@typescript-eslint'
   ],
   'rules': {
     'node/no-unsupported-features/es-syntax': 'off',
     'comma-dangle': ['warn', 'only-multiline']
+  },
+  'env': {
+    'jest/globals': true
   }
 }

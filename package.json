@@ -7,7 +7,7 @@
     "build": "npm run compile && npm run doc",
     "compile": "tsc",
     "doc": "jsdoc2md --template _README.hbs -f dist/**/*.js > README.md",
-    "test": "nyc ava test/**/*-spec.ts"
+    "test": "jest --coverage"
   },
   "author": {
     "name": "Davide Cassenti",
@@ -19,30 +19,21 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@types/sinon": "^9.0.0",
+    "@types/jest": "^25.2.2",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
-    "ava": "^3.8.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.0.1",
     "jsdoc-to-markdown": "^5.0.3",
-    "nyc": "^15.0.1",
-    "sinon": "^9.0.2",
     "source-map-support": "^0.5.19",
+    "ts-jest": "^26.0.0",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
-  },
-  "ava": {
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ]
   }
 }

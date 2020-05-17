@@ -1,10 +1,7 @@
-import test from 'ava'
-import sinon from 'sinon'
-
 import resolveFirst from '../../dist/array/async-array-resolveFirst'
 
-test.cb('resolveFirst', (t) => {
-  const clock = sinon.useFakeTimers()
+it('resolveFirst', (done) => {
+  const clock = jest.useFakeTimers()
 
   const arr = [
     new Promise(resolve => setTimeout(() => resolve(1), 200)),
@@ -13,10 +10,10 @@ test.cb('resolveFirst', (t) => {
   ]
 
   resolveFirst(arr).then(value => {
-    t.is(value, 2)
-    clock.restore()
-    t.end()
+    expect(value).toBe(2)
+    jest.clearAllTimers()
+    done()
   })
 
-  clock.tick(500)
+  jest.advanceTimersByTime(500)
 })

@@ -1,10 +1,7 @@
-import test from 'ava'
-import sinon from 'sinon'
-
 import promisify from '../../dist/exec/async-exec-promisify'
 
-test.cb('promisify', (t) => {
-  const clock = sinon.useFakeTimers()
+it('promisify', (done) => {
+  const clock = jest.useFakeTimers()
 
   const fn1 = async (x: number, callback: Function): Promise<void> => { setTimeout(() => callback(x), 500) }
   const fn2 = async (x: number, y: number, callback: Function): Promise<void> => { setTimeout(() => callback(x, y), 500) }
@@ -36,25 +33,25 @@ test.cb('promisify', (t) => {
     z3 = 1
   })
 
-  t.is(x1, 0)
-  t.is(x2, 0)
-  t.is(x3, 0)
-  t.is(y2, 0)
-  t.is(y3, 0)
-  t.is(z3, 0)
+  expect(x1).toBe(0)
+  expect(x2).toBe(0)
+  expect(x3).toBe(0)
+  expect(y2).toBe(0)
+  expect(y3).toBe(0)
+  expect(z3).toBe(0)
 
-  clock.tick(510)
+  jest.advanceTimersByTime(510)
 
   Promise.all([promiseFn1, promiseFn2, promiseFn3]).then(() => {
-    t.is(x1, 1)
-    t.is(x2, 1)
-    t.is(x3, 1)
-    t.is(y2, 1)
-    t.is(y3, 1)
-    t.is(z3, 1)
+    expect(x1).toBe(1)
+    expect(x2).toBe(1)
+    expect(x3).toBe(1)
+    expect(y2).toBe(1)
+    expect(y3).toBe(1)
+    expect(z3).toBe(1)
 
-    clock.restore()
+    jest.clearAllTimers()
 
-    t.end()
+    done()
   })
 })

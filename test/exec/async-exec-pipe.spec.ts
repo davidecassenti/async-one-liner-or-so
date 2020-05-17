@@ -1,8 +1,6 @@
-import test from 'ava'
-
 import pipe from '../../dist/exec/async-exec-pipe'
 
-test('pipe', async (t) => {
+it('pipe', async () => {
   const pipedFn = pipe(
     async (x: number) => Promise.resolve(x + 1),
     async (x: boolean) => Promise.resolve(x && 2),
@@ -11,8 +9,6 @@ test('pipe', async (t) => {
     async (x: Record<string, string>) => Promise.resolve([x])
   )
 
-  t.deepEqual(
-    await pipedFn(1),
-    [{ x: '2!' }]
-  )
+  expect(await pipedFn(1))
+    .toEqual([{ x: '2!' }])
 })
