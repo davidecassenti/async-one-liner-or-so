@@ -358,6 +358,7 @@ the use of `await` instead) and so on.
         * [.compose()](#module_exec.compose) ⇒ [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction)
         * [.pipe()](#module_exec.pipe) ⇒ [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction)
         * [.promisify(func)](#module_exec.promisify) ⇒ <code>function</code>
+        * [.queue(limit)](#module_exec.queue) ⇒ [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction)
         * [.timeout(callback, time)](#module_exec.timeout) ⇒ <code>Promise.&lt;T&gt;</code>
         * [.wait(time)](#module_exec.wait) ⇒ <code>Promise.&lt;void&gt;</code>
     * _inner_
@@ -416,6 +417,21 @@ original callback is invoked.
 | Param | Type | Description |
 | --- | --- | --- |
 | func | <code>function</code> | A function with callback as its last parameter |
+
+<a name="module_exec.queue"></a>
+
+### exec.queue(limit) ⇒ [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction)
+Executes a list of async functions in parallel, limiting the number
+of concurrent running functions.
+
+**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Returns**: [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction) - The composed function  
+**See**: [src/array/async-exec-queue.ts](src/array/async-exec-queue.ts)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| limit | <code>number</code> | The maximum number of functions to execute |
+| ...functions | <code>function</code> | The functions to execute |
 
 <a name="module_exec.timeout"></a>
 
