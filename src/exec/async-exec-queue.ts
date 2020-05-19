@@ -2,7 +2,7 @@
  * Executes a list of async functions in parallel, limiting the number
  * of concurrent running functions.
  *
- * @see [src/array/async-exec-queue.ts](src/array/async-exec-queue.ts)
+ * @see [src/exec/async-exec-queue.ts](src/exec/async-exec-queue.ts)
  *
  * @param {number} limit The maximum number of functions to execute
  * @param {Function} ...functions The functions to execute

@@ -6,7 +6,7 @@ import timeout from './async-exec-timeout'
  * This function returns a Promise. The Promise is resolved with the output value of
  * the `callback`, if it returns in time, or with the value `fallback` otherwise.
  *
- * @see [src/array/async-exec-waitFallback.ts](src/array/async-exec-waitFallback.ts)
+ * @see [src/exec/async-exec-waitFallback.ts](src/exec/async-exec-waitFallback.ts)
  *
  * @param callback {Function} The async callback to invoke
  * @param time {number} The time to wait

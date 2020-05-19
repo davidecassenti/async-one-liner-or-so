@@ -2,7 +2,7 @@
  * Execute the provided `callaback` after `time` ms.
  * Just as `setTimeout`, but async.
  *
- * @see [src/array/async-exec-timeout.ts](src/array/async-exec-timeout.ts)
+ * @see [src/exec/async-exec-timeout.ts](src/exec/async-exec-timeout.ts)
  *
  * @param callback {Function} The callback to invoke
  * @param time {number} The time to wait

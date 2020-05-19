@@ -13,11 +13,16 @@
  * The reducer returns the new value, that will be passed to the next.
  * The function returns the final reducer value.
  *
- * @param reducer The reducer function
- * @param initialValue The initial value passed to the reducer
- * @param children A function to retrieve the children
+ * @see [src/tree/async-tree-reduceDepthFirst.ts](src/tree/async-tree-reduceDepthFirst.ts)
+ *
+ * @param {Function} reducer The reducer function
+ * @param {T} initialValue The initial value passed to the reducer
+ * @param {Function} children A function to retrieve the children
+ * @returns {Function} The function to visit the tree
+ *
+ * @memberof module:tree
  */
-export default function depthFirst<T, U> (
+export default function reduceDepthFirst<T, U> (
   reducer: (accumulator: U, node: T, tree?: T) => Promise<U>,
   initialValue: U,
   children: (node: T) => T[]

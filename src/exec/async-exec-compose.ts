@@ -9,7 +9,7 @@ import { asyncComposedFunction } from './index'
  * parameter is the only argument of the last function; the output
  * of the last function will be the argument of the second last, and so on.
  *
- * @see [src/array/async-exec-compose.ts](src/array/async-exec-compose.ts)
+ * @see [src/exec/async-exec-compose.ts](src/exec/async-exec-compose.ts)
  *
  * @param ...functions {Function} The functions to execute
  * @returns {module:exec~asyncComposedFunction} The composed function
