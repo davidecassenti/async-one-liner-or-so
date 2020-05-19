@@ -361,6 +361,7 @@ the use of `await` instead) and so on.
         * [.queue(limit)](#module_exec.queue) ⇒ [<code>asyncComposedFunction</code>](#module_exec..asyncComposedFunction)
         * [.timeout(callback, time)](#module_exec.timeout) ⇒ <code>Promise.&lt;T&gt;</code>
         * [.wait(time)](#module_exec.wait) ⇒ <code>Promise.&lt;void&gt;</code>
+        * [.waitFallback(callback, time, fallback)](#module_exec.waitFallback) ⇒ <code>Promise.&lt;T&gt;</code>
     * _inner_
         * [~asyncComposedFunction](#module_exec..asyncComposedFunction) ⇒ <code>Promise.&lt;unknown&gt;</code>
 
@@ -461,6 +462,23 @@ Use await to stop the execution for that much time.
 | Param | Type | Description |
 | --- | --- | --- |
 | time | <code>number</code> | The time to wait |
+
+<a name="module_exec.waitFallback"></a>
+
+### exec.waitFallback(callback, time, fallback) ⇒ <code>Promise.&lt;T&gt;</code>
+Invokes for the provided async `callback`, and waits up to `time` before it finishes.
+This function returns a Promise. The Promise is resolved with the output value of
+the `callback`, if it returns in time, or with the value `fallback` otherwise.
+
+**Kind**: static method of [<code>exec</code>](#module_exec)  
+**Returns**: <code>Promise.&lt;T&gt;</code> - A Promise that is resolved with the return value of the callback, or the fallback  
+**See**: [src/array/async-exec-waitFallback.ts](src/array/async-exec-waitFallback.ts)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| callback | <code>function</code> | The async callback to invoke |
+| time | <code>number</code> | The time to wait |
+| fallback | <code>T</code> | The fallback |
 
 <a name="module_exec..asyncComposedFunction"></a>
 
