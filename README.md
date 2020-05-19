@@ -27,6 +27,64 @@ the use of <code>await</code> instead) and so on.</p>
 </dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#breadthFirst">breadthFirst(reducer, initialValue, children)</a></dt>
+<dd><p>Executes an async function on each element of a tree.
+The tree is visited breadth-first: the current node first,
+then each of the children.</p>
+<p>For each node in the tree, the reducer function is executed with:</p>
+<ul>
+<li><code>accumulator</code>: the current reduced value (starts with <code>initialValue</code>)</li>
+<li><code>node</code>: the current node</li>
+<li><code>tree</code>: the whole tree</li>
+</ul>
+</dd>
+<dt><a href="#depthFirst">depthFirst(reducer, initialValue, children)</a></dt>
+<dd><p>Executes an async function on each element of a tree.
+The tree is visited depth-first: the current node first,
+then each of the children.</p>
+<p>For each node in the tree, the reducer function is executed with:</p>
+<ul>
+<li><code>accumulator</code>: the current reduced value (starts with <code>initialValue</code>)</li>
+<li><code>node</code>: the current node</li>
+<li><code>tree</code>: the whole tree</li>
+</ul>
+<p>The visit can be stopped at any point, by throwing an Error in the
+reducer. For example, you might use it to find a node by id: if
+the <code>accumulator.id</code> is the desired one,</p>
+</dd>
+<dt><a href="#breadthFirst">breadthFirst(reducer, initialValue, children)</a></dt>
+<dd><p>Executes an async function on each element of a tree.
+The tree is visited breadth-first: starting from the root, each node
+of the tree at at particular depth is visited, before moving to the
+next level.</p>
+<p>For each node in the tree, the reducer function is executed with:</p>
+<ul>
+<li><code>accumulator</code>: the current reduced value (starts with <code>initialValue</code>)</li>
+<li><code>node</code>: the current node</li>
+<li><code>tree</code>: the whole tree</li>
+</ul>
+<p>The reducer returns the new value, that will be passed to the next.
+The function returns the final reducer value.</p>
+</dd>
+<dt><a href="#depthFirst">depthFirst(reducer, initialValue, children)</a></dt>
+<dd><p>Executes an async function on each element of a tree.
+The tree is visited depth-first: starting from the root, the visit
+goes as far as possible down the branches, before returning back
+to the parent node.</p>
+<p>For each node in the tree, the reducer function is executed with:</p>
+<ul>
+<li><code>accumulator</code>: the current reduced value (starts with <code>initialValue</code>)</li>
+<li><code>node</code>: the current node</li>
+<li><code>tree</code>: the whole tree</li>
+</ul>
+<p>The reducer returns the new value, that will be passed to the next.
+The function returns the final reducer value.</p>
+</dd>
+</dl>
+
 <a name="module_array"></a>
 
 ## array
@@ -491,4 +549,100 @@ An async function that is the result of the composition of others.
 | Param | Type | Description |
 | --- | --- | --- |
 | initialValue | <code>T</code> | The accumulated value |
+
+<a name="breadthFirst"></a>
+
+## breadthFirst(reducer, initialValue, children)
+Executes an async function on each element of a tree.
+The tree is visited breadth-first: the current node first,
+then each of the children.
+
+For each node in the tree, the reducer function is executed with:
+
+- `accumulator`: the current reduced value (starts with `initialValue`)
+- `node`: the current node
+- `tree`: the whole tree
+
+**Kind**: global function  
+
+| Param | Description |
+| --- | --- |
+| reducer | The reducer function |
+| initialValue | The initial value passed to the reducer |
+| children | A function to retrieve the children |
+
+<a name="depthFirst"></a>
+
+## depthFirst(reducer, initialValue, children)
+Executes an async function on each element of a tree.
+The tree is visited depth-first: the current node first,
+then each of the children.
+
+For each node in the tree, the reducer function is executed with:
+
+- `accumulator`: the current reduced value (starts with `initialValue`)
+- `node`: the current node
+- `tree`: the whole tree
+
+The visit can be stopped at any point, by throwing an Error in the
+reducer. For example, you might use it to find a node by id: if
+the `accumulator.id` is the desired one,
+
+**Kind**: global function  
+
+| Param | Description |
+| --- | --- |
+| reducer | The reducer function |
+| initialValue | The initial value passed to the reducer |
+| children | A function to retrieve the children |
+
+<a name="breadthFirst"></a>
+
+## breadthFirst(reducer, initialValue, children)
+Executes an async function on each element of a tree.
+The tree is visited breadth-first: starting from the root, each node
+of the tree at at particular depth is visited, before moving to the
+next level.
+
+For each node in the tree, the reducer function is executed with:
+
+- `accumulator`: the current reduced value (starts with `initialValue`)
+- `node`: the current node
+- `tree`: the whole tree
+
+The reducer returns the new value, that will be passed to the next.
+The function returns the final reducer value.
+
+**Kind**: global function  
+
+| Param | Description |
+| --- | --- |
+| reducer | The reducer function |
+| initialValue | The initial value passed to the reducer |
+| children | A function to retrieve the children |
+
+<a name="depthFirst"></a>
+
+## depthFirst(reducer, initialValue, children)
+Executes an async function on each element of a tree.
+The tree is visited depth-first: starting from the root, the visit
+goes as far as possible down the branches, before returning back
+to the parent node.
+
+For each node in the tree, the reducer function is executed with:
+
+- `accumulator`: the current reduced value (starts with `initialValue`)
+- `node`: the current node
+- `tree`: the whole tree
+
+The reducer returns the new value, that will be passed to the next.
+The function returns the final reducer value.
+
+**Kind**: global function  
+
+| Param | Description |
+| --- | --- |
+| reducer | The reducer function |
+| initialValue | The initial value passed to the reducer |
+| children | A function to retrieve the children |
 
