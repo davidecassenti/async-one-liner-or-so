@@ -1,7 +1,7 @@
 import resolveFirst from '../../dist/array/async-array-resolveFirst'
 
 it('resolveFirst', (done) => {
-  const clock = jest.useFakeTimers()
+  jest.useFakeTimers()
 
   const arr = [
     new Promise(resolve => setTimeout(() => resolve(1), 200)),

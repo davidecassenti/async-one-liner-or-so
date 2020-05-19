@@ -1,7 +1,7 @@
 import promisify from '../../dist/exec/async-exec-promisify'
 
 it('promisify', (done) => {
-  const clock = jest.useFakeTimers()
+  jest.useFakeTimers()
 
   const fn1 = async (x: number, callback: Function): Promise<void> => { setTimeout(() => callback(x), 500) }
   const fn2 = async (x: number, y: number, callback: Function): Promise<void> => { setTimeout(() => callback(x, y), 500) }

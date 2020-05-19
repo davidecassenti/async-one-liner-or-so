@@ -1,7 +1,7 @@
 import timeout from '../../dist/exec/async-exec-timeout'
 
 it('timeout', async () => {
-  const clock = jest.useFakeTimers()
+  jest.useFakeTimers()
 
   let resultX = 0
   let resultY = 0
