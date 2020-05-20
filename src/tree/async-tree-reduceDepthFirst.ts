@@ -15,34 +15,34 @@
  *
  * @see [src/tree/async-tree-reduceDepthFirst.ts](src/tree/async-tree-reduceDepthFirst.ts)
  *
+ * @param {T} tree The tree
  * @param {Function} reducer The reducer function
- * @param {T} initialValue The initial value passed to the reducer
+ * @param {U} initialValue The initial value passed to the reducer
  * @param {Function} children A function to retrieve the children
- * @returns {Function} The function to visit the tree
+ * @returns {Promise<U>} The reduced value
  *
  * @memberof module:tree
  */
-export default function reduceDepthFirst<T, U> (
+export default async function reduceDepthFirst<T, U> (
+  tree: T,
   reducer: (accumulator: U, node: T, tree?: T) => Promise<U>,
   initialValue: U,
   children: (node: T) => T[]
-) {
-  return async (tree: T): Promise<U> => {
-    const visited: T[] = []
-    const next = async (accumulator: U, node: T): Promise<U> => {
-      if (visited.includes(node)) return accumulator
-      visited.push(node)
+): Promise<U> {
+  const visited: T[] = []
+  const next = async (accumulator: U, node: T): Promise<U> => {
+    if (visited.includes(node)) return accumulator
+    visited.push(node)
 
-      let result = await reducer(accumulator, node, tree)
+    let result = await reducer(accumulator, node, tree)
 
-      for await (const child of children(node)) {
-        result = await next(result, child)
-      }
-
-      return result
+    for await (const child of children(node)) {
+      result = await next(result, child)
     }
 
-    const finalResult = await next(initialValue, tree)
-    return finalResult
+    return result
   }
+
+  const finalResult = await next(initialValue, tree)
+  return finalResult
 }

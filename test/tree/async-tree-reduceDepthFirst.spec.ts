@@ -35,20 +35,18 @@ it('reduceDepthFirst', async () => {
     }
   }
 
-  const reduceDepthFirstArray = reduceDepthFirst<TreeNode, string[]>(
+  expect(await reduceDepthFirst(
+    tree.root,
     (accumulator: string[], node: TreeNode): Promise<string[]> => {
       return Promise.resolve([...accumulator, node.id] as string[])
     },
     [],
     node => node.children.map(name => tree[name])
-  )
-
-  expect(await reduceDepthFirstArray(tree.root))
-    .toEqual(['root', 'node1', 'node3', 'node5', 'node2', 'node4'])
+  )).toEqual(['root', 'node1', 'node3', 'node5', 'node2', 'node4'])
 })
 
 it('reduceDepthFirst, with circular tree', async () => {
-  const nodes: Tree = {
+  const tree: Tree = {
     root: {
       id: 'root',
       children: ['node1', 'node2']
@@ -71,14 +69,12 @@ it('reduceDepthFirst, with circular tree', async () => {
     }
   }
 
-  const reduceDepthFirstArray = reduceDepthFirst<TreeNode, string[]>(
+  expect(await reduceDepthFirst(
+    tree.root,
     (accumulator: string[], node: TreeNode): Promise<string[]> => {
       return Promise.resolve([...accumulator, node.id] as string[])
     },
     [],
-    node => node.children.map(name => nodes[name])
-  )
-
-  expect(await reduceDepthFirstArray(nodes.root))
-    .toEqual(['root', 'node1', 'node3', 'node4', 'node2'])
+    node => node.children.map(name => tree[name])
+  )).toEqual(['root', 'node1', 'node3', 'node4', 'node2'])
 })

@@ -502,12 +502,72 @@ Functions to work with tree structures.
 
 
 * [tree](#module_tree)
-    * [.reduceBreadthFirst(reducer, initialValue, children)](#module_tree.reduceBreadthFirst) ⇒ <code>function</code>
-    * [.reduceDepthFirst(reducer, initialValue, children)](#module_tree.reduceDepthFirst) ⇒ <code>function</code>
+    * [.findBreadthFirst(callback, callback, children)](#module_tree.findBreadthFirst) ⇒ <code>Promise.&lt;(T\|undefined)&gt;</code>
+    * [.findDepthFirst(callback, callback, children)](#module_tree.findDepthFirst) ⇒ <code>Promise.&lt;(T\|undefined)&gt;</code>
+    * [.reduceBreadthFirst(tree, reducer, initialValue, children)](#module_tree.reduceBreadthFirst) ⇒ <code>Promise.&lt;U&gt;</code>
+    * [.reduceDepthFirst(tree, reducer, initialValue, children)](#module_tree.reduceDepthFirst) ⇒ <code>Promise.&lt;U&gt;</code>
+
+<a name="module_tree.findBreadthFirst"></a>
+
+### tree.findBreadthFirst(callback, callback, children) ⇒ <code>Promise.&lt;(T\|undefined)&gt;</code>
+Finds the first item in the tree that passes the test implemented
+by the provided async callback function, and returns a Promise
+resolved with the found value. The search is implemented breadth first.
+
+If no value is found, the returned Promise is resolved with `undefined`.
+
+The async callback function receives the following parameters:
+
+- `node`: the current node in the tree
+- `tree`: the whole input tree
+
+It should return a Promise resolved with:
+
+- `true` if the item passes the test
+- `false` if the item does not pass the test
+
+**Kind**: static method of [<code>tree</code>](#module_tree)  
+**Returns**: <code>Promise.&lt;(T\|undefined)&gt;</code> - The node of the tree, or undefined  
+**See**: [src/tree/async-tree-findBreadthFirst.ts](src/tree/async-tree-findBreadthFirst.ts)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| callback | <code>function</code> | The reducer function |
+| callback | [<code>callbackAsyncArrayTest</code>](#module_array..callbackAsyncArrayTest) | The async callback |
+| children | <code>function</code> | A function to retrieve the children |
+
+<a name="module_tree.findDepthFirst"></a>
+
+### tree.findDepthFirst(callback, callback, children) ⇒ <code>Promise.&lt;(T\|undefined)&gt;</code>
+Finds the first item in the tree that passes the test implemented
+by the provided async callback function, and returns a Promise
+resolved with the found value. The search is implemented depth first.
+
+If no value is found, the returned Promise is resolved with `undefined`.
+
+The async callback function receives the following parameters:
+
+- `node`: the current node in the tree
+- `tree`: the whole input tree
+
+It should return a Promise resolved with:
+
+- `true` if the item passes the test
+- `false` if the item does not pass the test
+
+**Kind**: static method of [<code>tree</code>](#module_tree)  
+**Returns**: <code>Promise.&lt;(T\|undefined)&gt;</code> - The node of the tree, or undefined  
+**See**: [src/tree/async-tree-findDepthFirst.ts](src/tree/async-tree-findDepthFirst.ts)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| callback | <code>function</code> | The reducer function |
+| callback | [<code>callbackAsyncArrayTest</code>](#module_array..callbackAsyncArrayTest) | The async callback |
+| children | <code>function</code> | A function to retrieve the children |
 
 <a name="module_tree.reduceBreadthFirst"></a>
 
-### tree.reduceBreadthFirst(reducer, initialValue, children) ⇒ <code>function</code>
+### tree.reduceBreadthFirst(tree, reducer, initialValue, children) ⇒ <code>Promise.&lt;U&gt;</code>
 Executes an async function on each element of a tree.
 The tree is visited breadth-first: starting from the root, each node
 of the tree at at particular depth is visited, before moving to the
@@ -523,18 +583,19 @@ The reducer returns the new value, that will be passed to the next.
 The function returns the final reducer value.
 
 **Kind**: static method of [<code>tree</code>](#module_tree)  
-**Returns**: <code>function</code> - The function to visit the tree  
+**Returns**: <code>Promise.&lt;U&gt;</code> - The reduced value  
 **See**: [src/tree/async-tree-reduceBreadthFirst.ts](src/tree/async-tree-reduceBreadthFirst.ts)  
 
 | Param | Type | Description |
 | --- | --- | --- |
+| tree | <code>T</code> | The tree |
 | reducer | <code>function</code> | The reducer function |
-| initialValue | <code>T</code> | The initial value passed to the reducer |
+| initialValue | <code>U</code> | The initial value passed to the reducer |
 | children | <code>function</code> | A function to retrieve the children |
 
 <a name="module_tree.reduceDepthFirst"></a>
 
-### tree.reduceDepthFirst(reducer, initialValue, children) ⇒ <code>function</code>
+### tree.reduceDepthFirst(tree, reducer, initialValue, children) ⇒ <code>Promise.&lt;U&gt;</code>
 Executes an async function on each element of a tree.
 The tree is visited depth-first: starting from the root, the visit
 goes as far as possible down the branches, before returning back
@@ -550,12 +611,13 @@ The reducer returns the new value, that will be passed to the next.
 The function returns the final reducer value.
 
 **Kind**: static method of [<code>tree</code>](#module_tree)  
-**Returns**: <code>function</code> - The function to visit the tree  
+**Returns**: <code>Promise.&lt;U&gt;</code> - The reduced value  
 **See**: [src/tree/async-tree-reduceDepthFirst.ts](src/tree/async-tree-reduceDepthFirst.ts)  
 
 | Param | Type | Description |
 | --- | --- | --- |
+| tree | <code>T</code> | The tree |
 | reducer | <code>function</code> | The reducer function |
-| initialValue | <code>T</code> | The initial value passed to the reducer |
+| initialValue | <code>U</code> | The initial value passed to the reducer |
 | children | <code>function</code> | A function to retrieve the children |
 
