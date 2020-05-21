@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Example of how to do async stuff, in just one line (or so)",
   "types": "dist/index.d.ts",
+  "private": true,
   "scripts": {
     "build": "npm run compile && npm run doc",
     "compile": "tsc",
